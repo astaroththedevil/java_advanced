@@ -1,9 +1,8 @@
 package javapodstawy.tablice;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.sql.Array;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ex1 {
     //-------------------------- METODY -------------------------------
@@ -60,40 +59,100 @@ public class Ex1 {
     }
 
     public static boolean isDuplicated(int[] input) {
-        List inputList = Arrays.asList(input);
-        Set inputSet = new HashSet(inputList);
-        if (inputSet.size() < inputList.size()) {
+        List<Integer> inputList = new ArrayList();
+        for (int i = 0; i < input.length; i++) {
+            inputList.add(input[i]);
+        }
+        List<Integer> inputSet = inputList.stream().distinct().collect(Collectors.toList());
+//        System.out.println(inputSet);
+
+        if (input.length > inputSet.size()) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
-
-    //------------------------- WYWOŁANIA METOD ----------------------------
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-        System.out.println(isFound(array, 7));
-
-        System.out.println("------------------------");
-
-        System.out.println(indexOfElement(array, 7));
-
-        System.out.println("------------------------");
-
-        System.out.println(average(1, 2, 3, 4));
-
-        System.out.println("------------------------");
-
-        System.out.println(maxValue(15, 30, 45, 90));
-
-        System.out.println("------------------------");
-
-        System.out.println(minValue(20, 40, 60, 80, 100));
-
-        System.out.println("------------------------");
-
-        int[] array2 = {2, 2, 3, 3};
-        System.out.println(isDuplicated(array2));
+    public static List<Integer> returnWithoutDuplicates(int[] array) {
+        List<Integer> inputList = new ArrayList();
+        for (int i = 0; i < array.length; i++) {
+            inputList.add(array[i]);
+        }
+        List<Integer> inputSet = inputList.stream().distinct().collect(Collectors.toList());
+//        inputSet.toArray();
+        return inputSet;
     }
-}
+
+    public static void writeCommonElements(int[] array1, int[] array2) {
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j]) {
+                    System.out.println(array1[i]);
+                }
+            }
+        }
+    }
+
+    public static boolean benchmarkArrays(int[] array1, int[] array2) {
+        boolean areSimilar = false;
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j] && array1.length == array2.length) {
+                    areSimilar = true;
+                } else {
+                    areSimilar = false;
+                }
+            }
+        }
+        return areSimilar;
+    }
+
+    public static void invertedArray(String [] array){
+
+        String [] inverted = new String[array.length];
+        for (int i = array.length - 1; i >= 0; i--){
+            inverted[i] = array[i];
+            System.out.println(inverted[i]);
+        }
+    }
+
+
+        //------------------------- WYWOŁANIA METOD ----------------------------
+        public static void main (String[]args){
+            int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+            System.out.println(isFound(array, 7));
+            System.out.println("------------------------");
+
+            System.out.println(indexOfElement(array, 7));
+            System.out.println("------------------------");
+
+            System.out.println(average(1, 2, 3, 4));
+            System.out.println("------------------------");
+
+            System.out.println(maxValue(15, 30, 45, 90));
+            System.out.println("------------------------");
+
+            System.out.println(minValue(20, 40, 60, 80, 100));
+            System.out.println("------------------------");
+
+            int[] array2 = {2, 2, 3, 3, 4, 6, 7, 8, 9, 0, 9, 8, 3, 4, 5, 1, 6, 1, 3};
+            System.out.println(isDuplicated(array2));
+            System.out.println("------------------------");
+
+            System.out.println(returnWithoutDuplicates(array2));
+            System.out.println("------------------------");
+
+            int[] array3 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 33};
+            int[] array4 = {2, 4, 6, 8, 33};
+            Ex1.writeCommonElements(array3, array4);
+            System.out.println("------------------------");
+
+            int [] array5 = {1, 2, 3};
+            int [] array6 = {1, 2, 3};
+            System.out.println(benchmarkArrays(array5, array6));
+
+            String [] array7 = {"A", "B", "C", "D", "E", "F"};
+            Ex1.invertedArray(array7);
+            System.out.println("------------------------");
+        }
+    }
