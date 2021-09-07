@@ -116,6 +116,24 @@ public class Ex1 {
         }
     }
 
+    public static void bubbleSort(int[] array) {
+        boolean sorted = false;
+        int temp;
+        while (!sorted) {
+            sorted = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i+1]) {
+                    temp = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = temp;
+                    sorted = false;
+                }
+            }
+        }
+    }
+
+
+
 
         //------------------------- WYWOŁANIA METOD ----------------------------
         public static void main (String[]args){
@@ -154,5 +172,10 @@ public class Ex1 {
             String [] array7 = {"A", "B", "C", "D", "E", "F"};
             Ex1.invertedArray(array7);
             System.out.println("------------------------");
+
+            int [] bubbleArray = {6, 5, 3, 1, 8, 7, 2, 4};
+            bubbleSort(bubbleArray);
+            System.out.println(Arrays.toString(bubbleArray));
+
         }
     }
