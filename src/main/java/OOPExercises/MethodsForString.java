@@ -99,6 +99,24 @@ public class MethodsForString {
 //        System.out.println(string12.isEmpty());
         System.out.println("--------------------------------------------------------------");
 
+        System.out.println("valueOf() method");
+        String doubleStr = String.valueOf(1.234);
+        String booleanStr = String.valueOf(true);
+        String charTableStr = String.valueOf(new char[]{'a', 'b', 'c'});
+        System.out.println(doubleStr);
+        System.out.println(booleanStr);
+        System.out.println(charTableStr);
+        System.out.println("--------------------------------------------------------------");
+
+        System.out.println("fluent interface");
+        String result = "  strang"
+                .replace("a", "i")
+                .concat("!")
+                .toUpperCase()
+                .trim();
+        System.out.println(result);
+        System.out.println("--------------------------------------------------------------");
+
 
     }
 }
