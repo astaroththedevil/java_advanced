@@ -1,7 +1,6 @@
-package OOPExercises;
+package OOPExercises.udemy.methodstheory.string;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class MethodsForStringExercises {
 
@@ -66,6 +65,19 @@ public class MethodsForStringExercises {
         }
         return status;
     }
+
+//    public static String camelCase(String givenText){
+//        String temp = givenText.replace(" ", "");
+//        char[] tempChar = temp.toCharArray();
+//        for (int i = 0; i < tempChar.length; i++){
+//            if(i % 2 == 0){
+//                for (char c : tempChar) {
+//
+//                }
+//
+//            }
+//        }
+//    }
 
 
     //---------------------------INVOKING METHODS-------------------------------

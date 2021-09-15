@@ -1,4 +1,4 @@
-package OOPExercises;
+package OOPExercises.udemy.methodstheory.string;
 
 import java.util.Locale;
 
@@ -117,6 +117,17 @@ public class MethodsForString {
         System.out.println(result);
         System.out.println("--------------------------------------------------------------");
 
+        System.out.println("typy opakowane");
+        Integer i = 1;
+        Integer i2 = Integer.parseInt("123");
+        double d = i.doubleValue();
+
+        boolean b = Boolean.parseBoolean("true");
+        System.out.println(i);
+        System.out.println(i2);
+        System.out.println(d);
+        System.out.println(b);
+        System.out.println("--------------------------------------------------------------");
 
     }
 }
