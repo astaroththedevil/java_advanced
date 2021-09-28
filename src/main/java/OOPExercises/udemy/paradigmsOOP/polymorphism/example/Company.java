@@ -124,6 +124,7 @@ public class Company {
         ceo.signContract();
         ceo.printInfo();
         Manager person = ceo;//Ceo: Jimm from class Ceo - dynamic binding
+        person.hire();
         person.printInfo();//Ceo: Jimm from class Ceo - dynamic binding
     }
 }
